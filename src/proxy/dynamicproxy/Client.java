@@ -10,8 +10,9 @@ public class Client {
         Star realStar=new RealStar();
         StartHandler handler =new StartHandler(realStar);
         Star proxy = (Star) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(), new Class[]{Star.class}, handler);
+        //调用代理类方法都会进入handler
         proxy.bookTicket();
-        proxy.sing();
+        proxy.sing();//代理只能让真时明星唱歌
 
     }
 }
